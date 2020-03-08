@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Volt Maps Navigation and E-Car Charger Finder">
+  <meta name="author" content="John Cleoffe">
+  <link rel="icon" href="favicon.ico">
+
+  <title>Volt Maps - Home</title>
+
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Icons for this template -->
+  <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Stylesheet -->
+  <link href="assets/css/app.css" rel="stylesheet">
+  <!-- build:css -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/map.css" rel="stylesheet">
+  <!-- endbuild -->
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation">
+    <a href="index.html"><img src="assets/img/logo.png" width="36" height="36" /></a>
+    <a class="navbar-brand ml-2 brand_name" href="index.html">Volt</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse p-4" id="navbarTogglerDemo02">
+
+      <input id="origin" class="form-control sm-2 search-box0" type="search" placeholder="Origin">
+      <input id="destination" class="form-control ml-2 sm-2 search-box1" type="search" placeholder="Destination">
+      <button class="btn btn-outline-success my-2 my-sm-0 search_icon" id="output"><i class="fas fa-search"></i></button>
+
+      <!-- <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="signUp.html">Sign Up</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="signIn.html">Sign In</a>
+        </li>
+
+      </ul> -->
+    </div>
+  </nav>
+
+  <div id="map" class="position-absolute"></div>
+  <div id="right-panel" class="float-right">
+    <div>
+      <b>Start:</b>
+      <select id="start">
+        <option value="Dublin">Dublin</option>
+        <option value="Galway">Galway</option>
+        <option value="Cork">Cork</option>
+      </select>
+      <br>
+      <b>Waypoints:</b> <br>
+      <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+      <select multiple id="waypoints">
+        <option value="Athlone">Athlone</option>
+
+      </select>
+      <br>
+      <b>End:</b>
+      <select id="end">
+        <option value="Dublin">Dublin</option>
+        <option value="Galway">Galway</option>
+        <option value="Cork">Cork</option>
+      </select>
+      <br>
+      <input type="submit" id="submit">
+    </div>
+    <div id="directions-panel"></div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/vendor/jquery.slim.min.js"></script>
+  <script src="assets/js/vendor/popper.min.js"></script>
+  <script src="assets/js/vendor/bootstrap.min.js"></script>
+  <!-- Google Maps API -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN-2KqHHGQtoESJP0Oroq_BlytylJ28g0&libraries=places&callback=initMap"></script>
+  <!-- build:js -->
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/app.js"></script>
+
+  <!-- endbuild -->
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+function initMap() {
+  // Map canvas
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: 53.3498,
+      lng: -6.2603
+    },
+    zoom: 8
+  });
+
+  // kml init
+  var esbLayer = new google.maps.KmlLayer({
+    url: 'https://esb.ie/ECARS/kml/charging-locations.kml',
+    map: map
+  });
+
+  new DirectionsHandler(map);
+
+  // HTML5 GEOLOCATION
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var yourPosition = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        },
+            marker = new google.maps.Marker({
+              position: yourPosition,
+              map:      map,
+              title:    'Your Location'
+            })
+        map.setCenter(yourPosition);
+      });
+  }
+}
+
+/**
+ * @constructor
+ */
+function DirectionsHandler(map) {
+  this.map                = map;
+  this.originPlaceId      = null;
+  this.destinationPlaceId = null;
+  this.travelMode         = 'DRIVING';
+  this.directionsService  = new google.maps.DirectionsService;
+  this.directionsDisplay  = new google.maps.DirectionsRenderer;
+  this.directionsDisplay.setMap(map);
+  this.directionsDisplay.setOptions({draggable: true});
+  this.directionsDisplay.setPanel(document.getElementById('route-panel'));
+
+  var origin              = document.getElementById('origin'),
+      destination         = document.getElementById('destination'),
+      originAc            = new google.maps.places.Autocomplete(origin),
+      destinationAc       = new google.maps.places.Autocomplete(destination);
+
+  originAc.setFields(['place_id']);
+  destinationAc.setFields(['place_id']);
+
+  this.setupPlaceChangedListener(originAc, 'ORIG');
+  this.setupPlaceChangedListener(destinationAc, 'DEST');
+}
+
+DirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+  var me = this;
+  autocomplete.bindTo('bounds', this.map);
+
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+
+    if (!place.place_id) {
+      window.alert('Please select a place');
+      return;
+    }
+    if (mode === 'ORIG') {
+        me.originPlaceId      = place.place_id;
+    } else {
+        me.destinationPlaceId = place.place_id;
+    }
+    me.route();
+  });
+};
+
+DirectionsHandler.prototype.route = function() {
+  var me = this;
+  if (!this.originPlaceId || !this.destinationPlaceId) {return;}
+
+  this.directionsService.route({
+      origin:       {'placeId': this.originPlaceId},
+      destination:  {'placeId': this.destinationPlaceId},
+      travelMode:   this.travelMode
+    },
+    function(response, status) {
+      if (status === 'OK') {
+          me.directionsDisplay.setDirections(response);
+      } else {
+          window.alert('Directions request failed due to ' + status);
+      }
+    });
+};

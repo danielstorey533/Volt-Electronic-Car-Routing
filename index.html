@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Volt Maps Navigation and E-Car Charger Finder">
+  <meta name="author" content="John Cleoffe">
+  <link rel="icon" href="favicon.ico">
+
+  <title>Volt Maps - Home</title>
+
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Icons for this template -->
+  <!-- <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- Stylesheet -->
+  <link href="assets/css/app.css" rel="stylesheet">
+  <!-- build:css -->
+  <link href="assets/css/sidebar.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/map.css" rel="stylesheet">
+  <!-- endbuild -->
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3><i class="fas fa-directions mr-2"></i> Directions</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <div id="route-panel"></div>
+
+        <div class="col-md-6 mt-4">
+          <div class="input-group mb-3">
+            <input type="text" id="optional" name="optional" value="" aria-label="Default" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Optional route">
+          </div>
+        </div>
+        <!-- <p>Waypoints: <br /><i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br /></p>
+        <select multiple id="waypoints">
+          <option value="Athlone">Athlone</option>
+        </select>
+        <div id="directions-panel"></div> -->
+      </ul>
+
+      <!-- <div class="sidebar-header">
+        <h3><i class="fas fa-map-marked-alt mr-2"></i> Waypoints</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <p>Waypoints: <br /><i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br /></p>
+        <select multiple id="waypoints">
+          <option value="Athlone">Athlone</option>
+        </select>
+        <div id="directions-panel"></div>
+      </ul> -->
+
+    </nav>
+
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
+
+          <a href="index.html"><img class="ml-4" src="assets/img/logo.png" width="36" height="36" /></a>
+          <a class="navbar-brand ml-2 brand_name" href="index.html">Volt</a>
+          <div class="col-md-3 mt-4">
+            <div class="input-group mb-3">
+              <input type="search" id="origin" name="origin" value="" aria-label="Default" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Origin">
+            </div>
+          </div>
+
+          <div class="col-md-3 mt-4">
+            <div class="input-group mb-3">
+              <input type="search" id="destination" name="destination" value="" aria-label="Default" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Destination">
+            </div>
+          </div>
+
+          <div class="col-md-2 mt-4">
+            <div class="input-group mb-3">
+              <input type="text" id="range" name="range" value="" aria-label="Default" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Range (km)">
+            </div>
+          </div>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="signIn.html">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signUp.html">Sign Up</a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </nav>
+
+      <div id="map"></div>
+    </div>
+
+  </div>
+
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/vendor/jquery.slim.min.js"></script>
+  <script src="assets/js/vendor/popper.min.js"></script>
+  <script src="assets/js/vendor/bootstrap.min.js"></script>
+  <!-- Google Maps API -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBN-2KqHHGQtoESJP0Oroq_BlytylJ28g0&libraries=places&callback=initMap&language=en&region=IE"></script>
+  <!-- build:js -->
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#sidebarCollapse').on('click', function() {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+
+  <!-- endbuild -->
+</body>
+
+</html>

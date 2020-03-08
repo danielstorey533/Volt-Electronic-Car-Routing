@@ -1,0 +1,29 @@
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.search-box0 {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.search-box1 {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.search_icon {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.brand_name {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 42px;
+}
