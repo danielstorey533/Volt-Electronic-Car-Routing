@@ -1,8 +1,13 @@
 # VOLT Maps
 A third year project for IADT Creative Computing. Made by Daniel Storey and John Cleoffe Navarro.
 
+![Screenshot of Volt Application](https://i.imgur.com/xprfpH6.png)
+
+
 ## Overview
-Volt Maps is an app designed for electric vehicle users that could find and navigate chargers throughout Ireland. The map is powered by Google Maps JS API which offers numerous features like places, directions, and geocoding services.
+Volt Maps is an app designed for electric vehicle users to calculate long distance journeys relative to
+electronic chargers along the way.
+The application uses the Google Maps JS API which offers numerous features such as places, directions and geocoding services.
 
 ## Pre-Requisite
 - [Node.js](https://nodejs.org/en/download/ "Node Js")
